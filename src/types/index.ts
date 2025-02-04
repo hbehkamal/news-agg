@@ -1,5 +1,13 @@
 export interface Post {
-  id: number;
+  source: {
+    id: string | null;
+    name: string;
+  };
+  author: string;
   title: string;
-  body: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
 }
