@@ -35,9 +35,8 @@ export function DateRangeFilter({ date, setDate }: DateRangeFilterProps) {
           <ChevronDown className="ml-2 h-4 w-4" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent className="w-50 p-0" align="start">
         <Calendar
-          initialFocus
           mode="range"
           defaultMonth={date?.from}
           selected={date}
