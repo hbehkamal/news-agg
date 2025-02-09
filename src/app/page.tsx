@@ -6,13 +6,14 @@ import { getNews } from '@/api';
 import { BlogCard, BlogHeader, FilterBar } from './components';
 
 export default function Home() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<{ articles: Post[] }[]>([]);
 
   useEffect(() => {
     const getPosts = async () => {
       try {
         const data = await getNews();
         setPosts(data);
+        console.log('data: ', data);
       } catch (error) {
         console.error('Failed to load posts', error);
       }
@@ -28,7 +29,11 @@ export default function Home() {
       <FilterBar />
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {posts?.map(
-          (post, index) => index < 10 && <BlogCard key={index} post={post} />
+          (post, index) =>
+            index < 10 &&
+            post.articles.map((article) => (
+              <BlogCard key={article.title} post={article} />
+            ))
         )}
       </div>
     </section>

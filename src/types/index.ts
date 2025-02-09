@@ -4,14 +4,12 @@ export interface NewsSource {
 }
 
 export interface Post {
-  source: { id: string | null; name: string };
+  source: string;
   author: string;
   title: string;
   description: string;
   url: string;
-  urlToImage: string;
   publishedAt: string;
-  content: string;
 }
 
 export interface NewsResponse {
