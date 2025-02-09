@@ -13,7 +13,6 @@ export default function Home() {
     const getPosts = async () => {
       try {
         const data = await getNews();
-        console.log('App.tsx:14 >> data', { data });
         setPosts(data);
       } catch (error) {
         console.error('Failed to load posts', error);

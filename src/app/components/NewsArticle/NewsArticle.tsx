@@ -1,17 +1,9 @@
+import { Post } from '@/types';
 import Image from 'next/image';
 import { FC } from 'react';
 
 interface NewsArticleProps {
-  article: {
-    source: { id: string | null; name: string };
-    author: string;
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
-    publishedAt: string;
-    content: string;
-  };
+  article: Post;
 }
 
 const NewsArticle: FC<NewsArticleProps> = ({ article }) => {
