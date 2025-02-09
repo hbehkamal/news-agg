@@ -10,6 +10,7 @@ export interface Post {
   description: string;
   url: string;
   publishedAt: string;
+  urlToImage?: string;
 }
 
 export interface NewsResponse {

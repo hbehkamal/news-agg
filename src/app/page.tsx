@@ -13,7 +13,6 @@ export default function Home() {
       try {
         const data = await getNews();
         setPosts(data);
-        console.log('data: ', data);
       } catch (error) {
         console.error('Failed to load posts', error);
       }
@@ -25,15 +24,12 @@ export default function Home() {
   return (
     <section className="py-12 sm:py-16 md:py-24 px-4 max-w-7xl mx-auto">
       <BlogHeader />
-
       <FilterBar />
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {posts?.map(
-          (post, index) =>
-            index < 10 &&
-            post.articles.map((article) => (
-              <BlogCard key={article.title} post={article} />
-            ))
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-8">
+        {posts?.map((post) =>
+          post.articles.map((article) => (
+            <BlogCard key={article.title} post={article} />
+          ))
         )}
       </div>
     </section>

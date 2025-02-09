@@ -78,6 +78,7 @@ export function normalizeResponseData(
       publishedAt: article.publishedAt,
       source: article.source.name,
       author: article.author,
+      urlToImage: article.urlToImage,
     }));
   }
 
