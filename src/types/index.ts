@@ -4,10 +4,7 @@ export interface NewsSource {
 }
 
 export interface Post {
-  source: {
-    id: string | null;
-    name: string;
-  };
+  source: { id: string | null; name: string };
   author: string;
   title: string;
   description: string;

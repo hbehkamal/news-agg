@@ -3,8 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Post } from '@/types';
 import { getNews } from '@/api';
-
-import { NewsArticle } from './components/';
+import { BlogCard, BlogHeader, FilterBar } from './components';
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -23,16 +22,15 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
-      <h1>News</h1>
-      <ul>
-        {posts?.map((post, index) => (
-          <NewsArticle
-            key={`${post.source.id} ${post.source?.name} ${index}`}
-            article={post}
-          />
-        ))}
-      </ul>
-    </main>
+    <section className="py-12 sm:py-16 md:py-24 px-4 max-w-7xl mx-auto">
+      <BlogHeader />
+
+      <FilterBar />
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {posts?.map(
+          (post, index) => index < 10 && <BlogCard key={index} post={post} />
+        )}
+      </div>
+    </section>
   );
 }
