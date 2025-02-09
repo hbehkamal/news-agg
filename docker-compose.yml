@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - NEWS_API_API_KEY=${NEWS_API_API_KEY}
+      - THE_GUARDIAN_API_KEY=${THE_GUARDIAN_API_KEY}
+      - NEW_YORK_TIMES_API_KEY=${NEW_YORK_TIMES_API_KEY}
+    volumes:
+      - .:/app
+    command: npm run dev
